@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Transport - Gestion des Transports Scolaires</title>
+    <link rel="stylesheet" href="/views/css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-bg-anim" id="sidebar-bg-anim"></div>
+        <div class="sidebar-header">
+            <h2>Transport Scolaire</h2>
+        </div>
+        <a href="/index.html" class="active">Dashboard</a>
+        <a href="/views/transports/transport.html">Transport</a>
+        <a href="/views/etudiant/etudiant.html">Étudiant</a>
+        <a href="/views/bus/bus.html">Bus</a>
+    </nav>
+
+    <main>
+        <h1>Ajouter un Transport</h1>
+        <div class="form-container">
+        <form id="transportForm" action="/views/transports/insert" method="POST">
+            <label for="refTrans">Référence Transport :</label>
+            <input type="text" id="refTrans" name="refTrans" required><br><br>
+
+            <label for="dateTrans">Date Transport :</label>
+            <input type="date" id="dateTrans" name="dateTrans" required><br><br>
+
+            <label for="idEleve">ID Élève :</label>
+            <input type="number" id="idEleve" name="idEleve" required><br><br>
+
+            <label for="idVehicule">ID Véhicule :</label>
+            <input type="number" id="idVehicule" name="idVehicule" required><br><br>
+
+            <div class="form-actions">
+                <input type="submit" value="Ajouter Transport">
+                <button type="button" id="updateTransportBtn" style="display:none;">Modifier</button>
+            </div>
+        </form>
+        </div>
+
+        <h2>Liste des Transports</h2>
+        <div class="table-toolbar"><input id="transportSearch" type="text" placeholder="Rechercher..." /><span class="query-display" id="transportQuery"></span></div>
+        <table border="1" data-entity="transport">
+            <thead>
+                <tr>
+                    <th>Référence Transport</th>
+                    <th>Date Transport</th>
+                    <th>Nom Élève</th>
+                    <th>Matricule Véhicule</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="transportTable">
+                <tr>
+                    <td>{{ refTrans }}</td>
+                    <td>{{ dateTrans }}</td>
+                    <td>{{ nomE }}</td>
+                    <td>{{ matriculeVehicule }}</td>
+                    <td><a class="row-delete" href="/views/transports/delete?refTrans={{ refTrans }}">Supprimer</a></td>
+                </tr>
+                <!-- Les lignes de transport seront insérées ici -->
+            </tbody>
+        </table>
+        <div class="pagination-container centered" data-target="transportTable">
+            <button class="pagination-button prev" disabled>Précédent</button>
+            <span class="pageInfo"></span>
+            <button class="pagination-button next">Suivant</button>
+        </div>
+    </main>
+    <script src="/views/js/script.js"></script>
+</body>
+</html>

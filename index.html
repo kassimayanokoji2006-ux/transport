@@ -1,0 +1,83 @@
+²UX ,78000 k5/7*<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestion des Transports Scolaires</title>
+    <link rel="stylesheet" href="/views/css/style.css">
+    <style>
+        
+        
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-bg-anim" id="sidebar-bg-anim"></div>
+        <div class="sidebar-header">
+            <h2>Transport Scolaire</h2>
+        </div>
+        <a href="/index.html" class="active">Dashboard</a>
+        <a href="/views/transports/transport.html">Transport</a>
+        <a href="/views/etudiant/etudiant.html">Étudiant</a>
+        <a href="/views/bus/bus.html">Bus</a>
+    </nav>
+    <div class="main-content">
+       
+        <div class="container">
+            <h1 class="page-title">Admin Dashboard</h1>
+            <div class="cards-row" style="grid-template-columns: repeat(2, minmax(180px,1fr));">
+                <div class="dash-card">
+                    <div class="dash-card-icon">👨‍🎓</div>
+                    <div class="dash-card-title">Étudiants: <span id="nbEtudiants">0</span></div>
+                </div>
+                <div class="dash-card">
+                    <div class="dash-card-icon">🚌</div>
+                    <div class="dash-card-title">Bus: <span id="nbBus">0</span></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="panel">
+                    <div class="panel-header">Derniers Enregistrements de Transport</div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Référence</th>
+                                    <th>Date</th>
+                                    <th>Bus</th>
+                                    <th>Étudiant</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboardTransportTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    </script>
+</body>
+</body>
+<script>
+// Générer dynamiquement plusieurs carrés qui défilent 5 par 5
+const sidebarAnim = document.getElementById('sidebar-bg-anim');
+if (sidebarAnim) {
+    const squareCount = 25; // Total de carrés
+    const columns = 5; // 5 carrés visibles par "colonne"
+    const sidebarWidth = 250;
+    const squareSize = 32;
+    const colSpacing = (sidebarWidth - columns * squareSize) / (columns + 1);
+    for (let i = 0; i < squareCount; i++) {
+        const col = i % columns;
+        const delay = (i % columns) * 1.2 + Math.floor(i / columns) * 0.7;
+        const left = colSpacing + col * (squareSize + colSpacing);
+        const div = document.createElement('div');
+        div.className = 'square';
+        div.style.left = left + 'px';
+        div.style.animationDelay = delay + 's';
+        sidebarAnim.appendChild(div);
+    }
+}
+</script>

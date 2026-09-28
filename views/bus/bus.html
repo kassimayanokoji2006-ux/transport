@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Transport - Gestion des Transports Scolaires</title>
+    <link rel="stylesheet" href="/views/css/bus.css">
+</head>
+<body>
+    <div style="display:flex;">
+    <nav class="sidebar">
+        <div class="sidebar-bg-anim" id="sidebar-bg-anim"></div>
+        <div class="sidebar-header">
+            <h2>Transport Scolaire</h2>
+        </div>
+        <a href="/index.html" class="active">Dashboard</a>
+        <a href="/views/transports/transport.html">Transport</a>
+        <a href="/views/etudiant/etudiant.html">Étudiant</a>
+        <a href="/views/bus/bus.html">Bus</a>
+    </nav>
+    <div style="display: block;">
+        <div>
+     <h5 style="text-align: center;">Ajouter un Véhicule</h5>
+    <form method="POST" action="/views/bus/insert" class="vehicle-form">
+    <label for="idVehicule">ID Véhicule:</label>
+    <input type="text" id="idVehicule" name="idVehicule" required>
+
+    <label for="matricule">Matricule:</label>
+    <input type="text" id="matricule" name="matricule" required>
+
+    <label for="marque">Marque:</label>
+    <input type="text" id="marque" name="marque" required>
+
+    <label for="capacite">Capacité:</label>
+    <input type="number" id="capacite" name="capacite" required>
+
+    <div class="form-actions">
+        <button type="submit">Ajouter Véhicule</button>
+    </div>
+    </form>
+    </div>
+
+    <div class="table-toolbar"><input id="busSearch" type="text" placeholder="Rechercher..." /><span class="query-display" id="busQuery"></span></div>
+    <table class="vehicle-table" data-entity="bus">
+    <thead>
+        <tr>
+            <th>ID Véhicule</th>
+            <th>Matricule</th>
+            <th>Marque</th>
+            <th>Capacité</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="vehicleTable">
+        <tr style="background-color: aliceblue;">
+            <td>{{ idVehicule }}</td>
+            <td>{{ matricule }}</td>
+            <td>{{ marque }}</td>
+            <td>{{ capacite }}</td>
+            <td>
+                <a class="row-delete" href="/views/bus/delete?idVehicule={{ idVehicule }}">Supprimer</a>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="pagination-container centered" data-target="vehicleTable">
+        <button class="pagination-button prev" disabled>Précédent</button>
+        <span class="pageInfo"></span>
+        <button class="pagination-button next">Suivant</button>
+    </div>
+</div>
+</div>
+
+<script src="/views/js/script.js"></script>
+</body>
+</html>

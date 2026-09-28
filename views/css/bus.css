@@ -1,0 +1,154 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh; /* Hauteur de la vue */
+}
+
+.sidebar {
+    width: 250px; /* Largeur de la barre de navigation */
+    background-color: #2c3e50; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    display: flex;
+    flex-direction: column; /* Alignement vertical */
+    justify-content: flex-start; /* Aligne en haut */
+    padding: 20px; /* Espacement interne */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
+}
+
+.sidebar-header {
+    text-align: center; /* Centre le titre */
+    margin-bottom: 30px; /* Espacement sous le titre */
+}
+
+.sidebar-header h2 {
+    margin: 0; /* Supprime le marge par défaut */
+    font-size: 24px; /* Taille du texte */
+    letter-spacing: 1px; /* Espacement des lettres */
+}
+
+.sidebar a {
+    color: white; /* Couleur des liens */
+    text-decoration: none; /* Supprime le soulignement */
+    padding: 15px; /* Espacement autour des liens */
+    border-radius: 5px; /* Coins arrondis */
+    margin: 5px 0; /* Espacement vertical entre les liens */
+    transition: background-color 0.3s, transform 0.2s; /* Transition pour l'effet de survol */
+    font-size: 16px; /* Taille du texte pour les liens */
+}
+
+.sidebar a:hover {
+    background-color: #3498db; /* Couleur de fond au survol */
+    transform: translateX(5px); /* Déplacement léger au survol */
+}
+
+.sidebar a.active {
+    /* background-color: #2980b9; Couleur de fond pour l'élément actif */
+    font-weight: bold; /* Met en gras l'élément actif */
+}
+
+.sidebar a:active {
+    transform: scale(0.98); /* Effet de réduction lors du clic */
+}
+
+
+
+
+h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.vehicle-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* margin-bottom: 20px; */
+    width: 400px;
+    margin-top: 0px;
+    margin-left: 300px; /* Centre le formulaire */
+}
+
+.vehicle-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.vehicle-form input {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    width: calc(100% - 22px); /* Ajuste la largeur */
+    margin-bottom: 15px; /* Espacement entre les inputs */
+    font-size: 14px;
+}
+
+.vehicle-form button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.vehicle-form button:hover {
+    background-color: #2980b9;
+}
+
+.vehicle-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    margin-left: 90px;
+}
+
+.vehicle-table th, .vehicle-table td {
+    padding: 5px;
+    border: 1px solid #bdc3c7;
+    text-align: center;
+}
+
+.vehicle-table th {
+    background-color: #3498db;
+    color: white;
+}
+
+.vehicle-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.vehicle-table tbody tr:hover {
+    background-color: #ecf0f1;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 90px;
+}
+
+.pagination-button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #2980b9;
+}
+
+#pageInfo {
+    align-self: center;
+    margin: 0 10px;
+}
