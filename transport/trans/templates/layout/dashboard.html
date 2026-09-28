@@ -1,0 +1,47 @@
+{% extends 'layout/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block header %}
+<span>Bienvenue</span>
+{% endblock %}
+{% block content %}
+<div class="dashboard-grid">
+  <div class="card card-primary" data-animate="fade-in">
+    
+    <div class="card-title">Etudiants</div>
+    <div class="card-value" data-count="{{ etu_count }}">0</div>
+    <a class="card-link" href="{% url 'etudiant_list' %}">Gérer</a>
+  </div>
+  <div class="card card-dark" data-animate="fade-in">
+    
+    <div class="card-title">Bus</div>
+    <div class="card-value" data-count="{{ bus_count }}">0</div>
+    <a class="card-link" href="{% url 'bus_list' %}">Gérer</a>
+  </div>
+  <div class="card card-primary" data-animate="fade-in">
+   
+    <div class="card-title">Transports</div>
+    <div class="card-value" data-count="{{ trans_count }}">0</div>
+    <a class="card-link" href="{% url 'trans_list' %}">Gérer</a>
+  </div>
+ 
+</div>
+
+<div class="stats-panel" data-animate="slide-up">
+  <div class="stat">
+    <div class="stat-label">Total Etudiants</div>
+    <div class="stat-value">{{ etu_count }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Total Bus</div>
+    <div class="stat-value">{{ bus_count }}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">Total Transports</div>
+    <div class="stat-value">{{ trans_count }}</div>
+  </div>
+  <a class="btn-primary" href="{% url 'trans_create' %}">Nouveau Transport</a>
+  
+</div>
+{% endblock %}
+
+

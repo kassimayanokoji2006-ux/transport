@@ -1,0 +1,12 @@
+{% extends 'layout/base.html' %}
+{% block title %}Supprimer Etudiant{% endblock %}
+{% block content %}
+<h2>Supprimer {{ item.matrE }} - {{ item.nomE }} {{ item.prenomE }}</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirmer</button>
+  <a href="{% url 'etudiant_list' %}">Annuler</a>
+</form>
+{% endblock %}
+
+

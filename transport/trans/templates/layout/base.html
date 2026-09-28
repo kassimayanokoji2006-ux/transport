@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'layout/head.html' %}
+</head>
+<body>
+    <header>
+        {% block header%}
+            <span> Page d'enregistrement</span>
+        {% endblock %}
+    </header>
+    <main>
+        <aside>
+            {% include 'layout/nav.html' %}
+        </aside>
+        <section>
+            <article>
+                {% block content %}{% endblock %}
+            </article>
+        </section>
+    </main>
+    {% comment %} <footer>{% include 'layout/footer.html' %}</footer> {% endcomment %}
+</body>
+</html>

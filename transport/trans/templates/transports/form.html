@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% block title %}Transport{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <div class="page-title">{% if item %}Modifier{% else %}Créer{% endif %} Transport</div>
+    <div class="actions">
+      <a class="btn-outline" href="{% url 'trans_list' %}">Retour</a>
+    </div>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label>Référence</label>
+      <input name="refT" value="{{ item.refT }}" {% if item %}readonly{% endif %} required>
+    </div>
+    <div>
+      <label>Date</label>
+      <input type="date" name="dateTrans" value="{{ item.dateTrans|date:'Y-m-d' }}" required>
+    </div>
+    <div>
+      <label>Etudiant</label>
+      <select name="matrE" required>
+        {% for e in etudiants %}
+        <option value="{{ e.matrE }}" {% if item and item.matrE_id == e.matrE %}selected{% endif %}>{{ e.matrE }} - {{ e.nomE }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div>
+      <label>Bus</label>
+      <select name="idBus" required>
+        {% for b in buses %}
+        <option value="{{ b.idBus }}" {% if item and item.idBus_id == b.idBus %}selected{% endif %}>{{ b.idBus }} - {{ b.marque }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="btn-row">
+      <a class="btn-secondary" href="{% url 'trans_list' %}">Annuler</a>
+      <button class="btn-primary" type="submit">Enregistrer</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,37 @@
+{% extends 'layout/base.html' %}
+{% block title %}Bus{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <div class="page-title">{% if item %}Modifier{% else %}Créer{% endif %} Bus</div>
+    <div class="actions">
+      <a class="btn-outline" href="{% url 'bus_list' %}">Retour</a>
+    </div>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label>ID Bus</label>
+      <input name="idBus" value="{{ item.idBus }}" {% if item %}readonly{% endif %} required>
+    </div>
+    <div>
+      <label>Matricule</label>
+      <input name="matrV" value="{{ item.matrV }}" required>
+    </div>
+    <div>
+      <label>Marque</label>
+      <input name="marque" value="{{ item.marque }}" required>
+    </div>
+    <div>
+      <label>Capacité</label>
+      <input type="number" name="capacite" value="{{ item.capacite }}" required>
+    </div>
+    <div class="btn-row">
+      <a class="btn-secondary" href="{% url 'bus_list' %}">Annuler</a>
+      <button class="btn-bus" type="submit">Enregistrer</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+

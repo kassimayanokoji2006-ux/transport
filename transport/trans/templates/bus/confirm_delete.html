@@ -1,0 +1,12 @@
+{% extends 'layout/base.html' %}
+{% block title %}Supprimer Bus{% endblock %}
+{% block content %}
+<h2>Supprimer {{ item.idBus }} - {{ item.marque }}</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirmer</button>
+  <a href="{% url 'bus_list' %}">Annuler</a>
+</form>
+{% endblock %}
+
+

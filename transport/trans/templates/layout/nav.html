@@ -1,0 +1,24 @@
+<nav>
+    <ul>
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="{% url 'home_name' %}"> Acceuil </a>
+        </li>
+        <li>
+            <i class="fa fa-user"></i>
+            <a href="{% url 'etudiant_list' %}"> Etudiants </a>
+        </li>
+        <li>
+            <i class="fa fa-bus"></i>
+            <a href="{% url 'bus_list' %}"> Bus </a>
+        </li>
+        <li>
+            <i class="fa fa-exchange"></i>
+            <a href="{% url 'trans_list' %}"> Transports </a>
+        </li>
+        {% comment %} <li>
+            <i class="fa fa-floppy-disk"></i>
+            <a href="{% url 'insert_name' %}"> Enregistrement </a>
+        </li> {% endcomment %}
+    </ul>
+</nav>

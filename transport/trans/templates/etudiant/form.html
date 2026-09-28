@@ -1,0 +1,45 @@
+{% extends 'layout/base.html' %}
+{% block title %}Etudiant{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="page-header">
+    <div class="page-title">{% if item %}Modifier{% else %}Créer{% endif %} Etudiant</div>
+    <div class="actions">
+      <a class="btn-outline" href="{% url 'etudiant_list' %}">Retour</a>
+    </div>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label>Matricule</label>
+      <input name="matrE" value="{{ item.matrE }}" {% if item %}readonly{% endif %} required>
+    </div>
+    <div>
+      <label>Nom</label>
+      <input name="nomE" value="{{ item.nomE }}" required>
+    </div>
+    <div>
+      <label>Prénom</label>
+      <input name="prenomE" value="{{ item.prenomE }}" required>
+    </div>
+    <div>
+      <label>Date de naissance</label>
+      <input type="date" name="dateN" value="{{ item.dateN|date:'Y-m-d' }}" required>
+    </div>
+    <div>
+      <label>Adresse</label>
+      <input name="adresse" value="{{ item.adresse }}">
+    </div>
+    <div>
+      <label>Téléphone parent</label>
+      <input name="telParent" value="{{ item.telParent }}">
+    </div>
+    <div class="btn-row">
+      <a class="btn-secondary" href="{% url 'etudiant_list' %}">Annuler</a>
+      <button class="btn-primary" type="submit">Enregistrer</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+
